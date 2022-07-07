@@ -12,7 +12,4 @@ include Singleton
         "_"
     end
 
-    def empty?
-        true
-    end
 end

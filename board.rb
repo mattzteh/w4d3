@@ -48,17 +48,11 @@ class Board
         row >= 0 && row <= 7 && col >= 0 && col <= 7
     end
 
-    def add_piece(piece, pos)
+    def empty?(pos)
+        self[pos] == NullPiece.instance
     end
 
-    def checkmate?(color)
-    end
 
-    def in_check?(color)
-    end
-
-    def find_king(color)
-    end
     def populate
         @rows.each_with_index do |sub, i|
             sub.each_with_index do |ele, j|
@@ -85,8 +79,8 @@ class Board
    
 end
 
-b = Board.new
-b.print_board
-p b.move_piece!("Black", [0,0], [4,0])
-b.print_board
+# b = Board.new
+# b.print_board
+# p b.move_piece!("Black", [0,0], [4,0])
+# b.print_board
 

@@ -10,11 +10,13 @@ module Slideable
         #returns 2D array
         #iterate through all directions to find positions
 
+
+
     end
 
     def grow_unblock_moves(pos, moves)
         
-        all_moves = []
+        all_moves = []  
         moves.each do |move|
             row, col = pos
             new_row, new_col = move
@@ -22,18 +24,18 @@ module Slideable
                 row += new_row
                 col += new_col
                 curr_pos = [row, col]
-                break if !board.valid_pos?(curr_pos)
+                break if !board.valid_pos?(curr_pos) || self.color == board[curr_pos].color
 
-                if board.empty?(curr_pos)
-                    all_moves << curr_pos
-                end
                 if self.color != board[curr_pos].color
                     all_moves << curr_pos
                     break
                 end
+                if board.empty?(curr_pos)
+                    all_moves << curr_pos
+                end
             end
         end
-        all_moves 
+        all_moves.uniq
     end
 
 

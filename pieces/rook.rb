@@ -5,7 +5,7 @@ class Rook < Piece
     include Slideable
 
 
-moves = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+MOVES = [[1, 0], [0, 1], [-1, 0], [0, -1]]
 
 
     def to_s
@@ -17,7 +17,7 @@ moves = [[1, 0], [0, 1], [-1, 0], [0, -1]]
     end
 
     def move_dirs(pos)
-        return grow_unblock_moves(pos, moves)
+        return grow_unblock_moves(pos, MOVES)
     end
 
 end
